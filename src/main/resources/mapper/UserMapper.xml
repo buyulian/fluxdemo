@@ -6,13 +6,12 @@
 
     <resultMap id="BaseResultMap" type="com.me.fluxstudy.model.User" >
         <result column="id" property="id" jdbcType="BIGINT"/>
-        <result column="uuid" property="name" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!-- 根据id查询 搬仓计划表 -->
-    <select id="getUsers"  resultMap="BaseResultMap" parameterType="java.lang.Long">
-        select *
-        from user
+    <select id="getUsers"  resultMap="BaseResultMap">
+        select * from user
     </select>
 
 </mapper>

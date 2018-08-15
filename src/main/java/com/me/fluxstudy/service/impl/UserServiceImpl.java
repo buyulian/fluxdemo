@@ -12,7 +12,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Resource
-    UserDao userDao;
+    private UserDao userDao;
 
     @Override
     public List<User> getUsers() {
