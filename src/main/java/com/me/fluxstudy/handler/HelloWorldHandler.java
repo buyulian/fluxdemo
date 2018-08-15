@@ -1,4 +1,4 @@
-package com.example.fluxstudy.handler;
+package com.me.fluxstudy.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

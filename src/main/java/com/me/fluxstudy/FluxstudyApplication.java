@@ -1,4 +1,4 @@
-package com.example.fluxstudy;
+package com.me.fluxstudy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

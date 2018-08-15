@@ -1,7 +1,13 @@
+mybatis:
+    mapper-locations: classpath:mapper/*.xml
+    type-aliases-package: com.me.model
 
-
-
-
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/hello?useUnicode=true&characterEncoding=utf-8
+    driverClassName: com.mysql.jdbc.Driver
 
 
 

@@ -1,4 +1,4 @@
-package com.example.fluxstudy.model;
+package com.me.fluxstudy.model;
 
 public class Person {
     private Integer id;
