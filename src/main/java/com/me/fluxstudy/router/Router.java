@@ -23,6 +23,7 @@ public class Router {
     public RouterFunction<?> routerFunction(){
         return RouterFunctions.route(RequestPredicates.GET("/hello"), helloWorldHandler::helloWorld)
                 .andRoute(RequestPredicates.GET("/logger"), helloWorldHandler::testLogger)
-                .andRoute(RequestPredicates.GET("/users"), userHandler::getUsers);
+                .andRoute(RequestPredicates.GET("/users"), userHandler::getUsers)
+                .andRoute(RequestPredicates.GET("/user"), userHandler::getUserById);
     }
 }

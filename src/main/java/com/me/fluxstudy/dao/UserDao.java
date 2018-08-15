@@ -7,5 +7,8 @@ import java.util.List;
 
 @Component
 public interface UserDao {
+
     List<User> getUsers();
+
+    User getUserById(Long id);
 }

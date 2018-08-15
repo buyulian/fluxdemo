@@ -24,4 +24,11 @@ public class UserHandler {
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .body(BodyInserters.fromObject(userList));
     }
+
+    public Mono<ServerResponse> getUserById(ServerRequest request){
+        User user=userService.getUserById(1L);
+        return ServerResponse.ok()
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .body(BodyInserters.fromObject(user));
+    }
 }
