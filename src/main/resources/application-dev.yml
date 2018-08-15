@@ -7,9 +7,11 @@ spring:
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://localhost:3306/hello?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/hello?useUnicode=true&characterEncoding=utf-8&useSSL=false
     driverClassName: com.mysql.jdbc.Driver
-
+logging:
+  level:
+    com.me.fluxstudy.dao: DEBUG
 
 
 
