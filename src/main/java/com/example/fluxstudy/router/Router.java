@@ -17,6 +17,7 @@ public class Router {
 
     @Bean
     public RouterFunction<?> routerFunction(){
-        return RouterFunctions.route(RequestPredicates.GET("/hello"), helloWorldHandler::helloWorld);
+        return RouterFunctions.route(RequestPredicates.GET("/hello"), helloWorldHandler::helloWorld)
+                .andRoute(RequestPredicates.GET("/logger"), helloWorldHandler::testLogger);
     }
 }
