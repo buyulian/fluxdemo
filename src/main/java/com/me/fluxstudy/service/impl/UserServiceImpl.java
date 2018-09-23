@@ -4,6 +4,7 @@ import com.me.fluxstudy.dao.UserDao;
 import com.me.fluxstudy.model.User;
 import com.me.fluxstudy.service.UserService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -15,6 +16,7 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
+    @Transactional
     public List<User> getUsers() {
         return userDao.getUsers();
     }
