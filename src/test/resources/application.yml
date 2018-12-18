@@ -2,7 +2,7 @@
 spring:
     #profiler
     profiles:
-        active: '@profileActive@'
+        active: 'dev'
 
 
 

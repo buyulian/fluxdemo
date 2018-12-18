@@ -12,6 +12,8 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
+
 import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.when;
 
@@ -20,10 +22,10 @@ import static org.mockito.Mockito.when;
 @SpringBootTest(classes = UserServiceTest.class)
 public class UserServiceTest {
 
-    @Mock
+    @Resource
     private UserService userService;
 
-    @Mock
+    @Resource
     private UserDao userDao;
 
     @Before

@@ -3,6 +3,7 @@ package com.me.fluxstudy.dao;
 
 import com.me.fluxstudy.model.Website;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 /**
  * Created by 不语恋 on 2017/5/12.
  */
-@Repository
+@Component
 public interface WebsiteDao {
 
     Website getById(@Param("id") Long id);
