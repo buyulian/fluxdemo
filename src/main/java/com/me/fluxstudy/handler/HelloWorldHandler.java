@@ -14,6 +14,7 @@ import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 import javax.annotation.Resource;
+import java.util.LinkedList;
 import java.util.List;
 
 import static org.springframework.web.reactive.function.BodyInserters.fromObject;
@@ -32,7 +33,10 @@ public class HelloWorldHandler {
     public Mono<ServerResponse> helloWorld(ServerRequest request){
 
         Website website=new Website();
-        website.setId(1);
+        List<String> nameList=new LinkedList<>();
+        nameList.add("Google");
+        nameList.add("淘宝");
+        website.setNameList(nameList);
         List<Website> websites = websiteService.listByCondition(website);
 
         return ServerResponse.ok()

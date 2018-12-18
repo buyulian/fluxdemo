@@ -7,6 +7,7 @@
         <result column="url" property="url" jdbcType="VARCHAR"/>
         <result column="alexa" property="alexa" jdbcType="INTEGER"/>
         <result column="country" property="country" jdbcType="VARCHAR"/>
+        <result column="is_delete" property="isDelete" jdbcType="TINYINT"/>
     </resultMap>
 
     <sql id="Base_Column_List" >
@@ -14,31 +15,35 @@
         name,
         url,
         alexa,
-        country
+        country,
+        is_delete
     </sql>
 
     <sql id="whereCondition">
         <where>
-            is_delete = 0
-            <if test="id != null">
-                AND id =  #{id}
+                is_delete = 0
+            <if test="id != null and id != '' ">
+                and id =  #{id}
             </if>
             <if test="name != null and name != '' ">
-                AND name =  #{name}
+                and name =  #{name}
             </if>
             <if test="url != null and url != '' ">
-                AND url =  #{url}
+                and url =  #{url}
             </if>
             <if test="alexa != null and alexa != '' ">
-                AND alexa =  #{alexa}
+                and alexa =  #{alexa}
             </if>
             <if test="country != null and country != '' ">
-                AND country =  #{country}
+                and country =  #{country}
+            </if>
+            <if test="isDelete != null and isDelete != '' ">
+                and is_delete =  #{isDelete}
             </if>
         </where>
     </sql>
 
-    <select id="getById" parameterType="long" resultMap="BaseResultMap">
+    <select id="getById" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List"/>
         FROM website
         WHERE id = #{id} AND is_delete = 0
@@ -50,45 +55,51 @@
         <include refid="whereCondition"/>
     </select>
 
-    <insert id="insert" parameterType="com.me.fluxstudy.model.Website">
+    <insert id="insert">
         INSERT INTO `website`
         <trim prefix="(" suffix=")" suffixOverrides="," >
-            <if test="id != null AND id != '' " >
+            <if test="id != null and id != '' " >
                 id,
             </if>
-            <if test="name != null AND name != '' " >
+            <if test="name != null and name != '' " >
                 name,
             </if>
-            <if test="url != null AND url != '' " >
+            <if test="url != null and url != '' " >
                 url,
             </if>
-            <if test="alexa != null AND alexa != '' " >
+            <if test="alexa != null and alexa != '' " >
                 alexa,
             </if>
-            <if test="country != null AND country != '' " >
+            <if test="country != null and country != '' " >
                 country,
+            </if>
+            <if test="isDelete != null and isDelete != '' " >
+                is_delete,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
-            <if test="id != null AND id != ''  " >
+            <if test="id != null and id != ''  " >
                 #{id},
             </if>
-            <if test="name != null AND name != ''  " >
+            <if test="name != null and name != ''  " >
                 #{name},
             </if>
-            <if test="url != null AND url != ''  " >
+            <if test="url != null and url != ''  " >
                 #{url},
             </if>
-            <if test="alexa != null AND alexa != ''  " >
+            <if test="alexa != null and alexa != ''  " >
                 #{alexa},
             </if>
-            <if test="country != null AND country != ''  " >
+            <if test="country != null and country != ''  " >
                 #{country},
+            </if>
+            <if test="isDelete != null and isDelete != ''  " >
+                #{isDelete},
             </if>
         </trim>
     </insert>
 
-    <insert id="insertByBatch" parameterType="java.util.List">
+    <insert id="insertByBatch">
         INSERT INTO `website`
         <trim prefix="(" suffix=")" suffixOverrides="," >
               id,
@@ -96,6 +107,7 @@
               url,
               alexa,
               country,
+              is_delete,
         </trim>
         values
         <foreach collection="list" item="item" index="index" separator="," >
@@ -105,33 +117,37 @@
                 #{item.url},
                 #{item.alexa},
                 #{item.country},
+                #{item.isDelete},
             </trim>
         </foreach>
     </insert>
 
-    <update id="updateById" parameterType="com.me.fluxstudy.model.Website">
+    <update id="updateById">
         UPDATE website
         <set>
-            <if test="id != null AND id != '' " >
+            <if test="id != null and id != '' " >
                 id = #{id},
             </if>
-            <if test="name != null AND name != '' " >
+            <if test="name != null and name != '' " >
                 name = #{name},
             </if>
-            <if test="url != null AND url != '' " >
+            <if test="url != null and url != '' " >
                 url = #{url},
             </if>
-            <if test="alexa != null AND alexa != '' " >
+            <if test="alexa != null and alexa != '' " >
                 alexa = #{alexa},
             </if>
-            <if test="country != null AND country != '' " >
+            <if test="country != null and country != '' " >
                 country = #{country},
+            </if>
+            <if test="isDelete != null and isDelete != '' " >
+                is_delete = #{isDelete},
             </if>
         </set>
         where id = #{id}
     </update>
 
-    <update id="logicalDeleteById" parameterType="long">
+    <update id="logicalDeleteById">
         UPDATE website
         SET is_delete = 1
         WHERE id = #{id} AND is_delete = 0

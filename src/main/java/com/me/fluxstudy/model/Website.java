@@ -1,5 +1,7 @@
 package com.me.fluxstudy.model;
 
+import java.util.List;
+
 /**  */
 public class Website {
 
@@ -18,7 +20,10 @@ public class Website {
     /** 国家 */
     private String country;
 
+    /**  */
+    private Byte isDelete;
 
+    private List<String> nameList;
 
     public Integer getId() {
         return id;
@@ -60,4 +65,19 @@ public class Website {
         this.country = country;
     }
 
+    public Byte getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Byte isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public List<String> getNameList() {
+        return nameList;
+    }
+
+    public void setNameList(List<String> nameList) {
+        this.nameList = nameList;
+    }
 }
