@@ -10,14 +10,14 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.when;
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = FluxstudyApplication.class)
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = UserServiceTest.class)
 public class UserServiceTest {
 
     @Mock

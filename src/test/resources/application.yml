@@ -1,0 +1,13 @@
+# spring
+spring:
+    #profiler
+    profiles:
+        active: '@profileActive@'
+
+
+
+
+
+
+
+
